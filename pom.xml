@@ -47,7 +47,9 @@
 					<image>
 						<builder>paketobuildpacks/builder-jammy-base:latest</builder>
 					</image>
+					<outputDirectory>output</outputDirectory>
 				</configuration>
+
 			</plugin>
 		</plugins>
 	</build>
