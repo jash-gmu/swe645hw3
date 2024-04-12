@@ -2,7 +2,7 @@
 FROM openjdk:17-jdk
 
 # Copy the built JAR file into the container
-COPY target/demo-0.0.1-SNAPSHOT.jar /demo.jar
+COPY /var/lib/jenkins/workspace/hw3/target/demo-0.0.1-SNAPSHOT.jar /demo.jar
 
 # Expose port 8080 for the application
 EXPOSE 8080
