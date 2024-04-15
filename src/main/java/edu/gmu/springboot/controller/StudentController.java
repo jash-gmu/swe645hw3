@@ -2,19 +2,15 @@ package edu.gmu.springboot.controller;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import edu.gmu.springboot.model.Student;
 import edu.gmu.springboot.service.StudentService;
 
 
+@CrossOrigin(origins = "http://23.20.120.207:31785")
+
 @RestController
+
 @RequestMapping("/api/students")
 public class StudentController {
     private StudentService studentService;
@@ -26,7 +22,9 @@ public class StudentController {
     @PostMapping
     public ResponseEntity<Student> saveStudent(@RequestBody Student student) {
         //return "created student" ;
+
         return new ResponseEntity<Student>(studentService.saveStudent(student), HttpStatus.CREATED);
+        //return null;
     }
     @GetMapping
     public List<Student> getAllStudents(){
@@ -45,5 +43,7 @@ public class StudentController {
         studentService.deleteStudent(id);
         return new ResponseEntity<String>("Student Deleted Successfully.", HttpStatus.OK);
     }
+
+
 
 }
